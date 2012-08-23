@@ -6,6 +6,7 @@ Tache ant pour les projets OpenCms 8 dans Eclipse
 
 
 === 23 Aout 2012 ===
+
 Dans le build.xml du projet Eclipse, verifier que les variables suivantes sont definies :
 
 	${folder.complib}	= etc/complib
