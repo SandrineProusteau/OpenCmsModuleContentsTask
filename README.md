@@ -7,6 +7,7 @@ Tache ant pour les projets OpenCms 8 dans Eclipse
 
 === 23 Aout 2012 ===
 Dans le build.xml du projet Eclipse, verifier que les variables suivantes sont definies :
+
 	${folder.complib}	= etc/complib
 	${folder.vfs}		= vfs_module
 	${file.resourcetypes}	= etc/resourcetypes.xml
@@ -24,9 +25,12 @@ Dans le build.xml du projet Eclipse, verifier que les variables suivantes sont d
 	${module.exportversion}
 	${folder.exportto}	= contents (chemin du dossier d'export du fichier de contenus du module)
 
+	
 Placer le jar dans ${folder.complib} du projet Eclipse.
 
+
 Ajouter la tache suivante dans le build.xml du projet Eclipse:
+
 
 	<!-- CONSTRUCTION DU FICHIER DE RECAPITULATIF DES CONTENUS -->
 	<taskdef name="contents" classname="OpenCmsModuleContentsTask">
