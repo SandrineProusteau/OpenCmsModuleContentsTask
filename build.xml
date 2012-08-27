@@ -1,9 +1,9 @@
 <project name="OpenCmsModuleContentsTask : compilation du jar" default="compile" basedir=".">
   
-	<property name="jdk.version" value="1.7" />
+	<property name="jdk.version" value="1.6" />
 
 	<path id="compil.classpath">
-		<fileset dir="etc/complib" includes="*.jar" />
+		<fileset dir="complib" includes="*.jar" />
 	</path>
 	
 	<!-- // TACHES ANT // -->
@@ -17,7 +17,7 @@
 	<!-- COMPILATION DES CLASSES -->
   	<target name="compile" depends="create folders">
 	    <javac srcdir="src" destdir="build/classes" classpathref="compil.classpath" debug="off" />
-	    <jar jarfile="build/jar/opencmsmodulecontentstask.jar" basedir="build/classes" >
+	    <jar jarfile="build/jar/opencmsmodulecontentstask-java1.6.jar" basedir="build/classes" >
 	      <manifest>
 	        <attribute name="Built-By" value="Sandrine Prousteau" />
 	        <attribute name="Build-Jdk" value="${jdk.version}" />
