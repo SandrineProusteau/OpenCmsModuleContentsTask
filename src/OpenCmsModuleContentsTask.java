@@ -278,16 +278,21 @@ public class OpenCmsModuleContentsTask extends Task{
 						types_tr = types_table.addElement( "tr" );
 						types_tr.addElement( "th" ).addAttribute("colspan", "2").addText("Settings");
 						nb_lines++;
-						List<Element> el_settings = xsdroot.element("annotation").element("appinfo").element("settings").elements("setting");
-						Iterator<Element> it_settings = el_settings.iterator(); 
-						while(it_settings.hasNext()){
-							Element el_setting = (Element)it_settings.next();
-							String setting_name = el_setting.attribute("name").getText();
-							String setting_widgetconfig = el_setting.attribute("widget-config").getText();
-							types_tr = types_table.addElement( "tr" );
-							types_tr.addElement( "td" ).addText(setting_name);
-							types_tr.addElement( "td" ).addText(setting_widgetconfig);
-							nb_lines++;
+						if(xsdroot.element("annotation").element("appinfo").element("settings")!=null && xsdroot.element("annotation").element("appinfo").element("settings").elements("setting")!=null){
+							List<Element> el_settings = xsdroot.element("annotation").element("appinfo").element("settings").elements("setting");
+							Iterator<Element> it_settings = el_settings.iterator(); 
+							while(it_settings.hasNext()){
+								Element el_setting = (Element)it_settings.next();
+								String setting_name = el_setting.attribute("name").getText();
+								String setting_widgetconfig = "";
+								if(el_setting.attribute("widget-config")!=null){
+									setting_widgetconfig = el_setting.attribute("widget-config").getText();
+								}
+								types_tr = types_table.addElement( "tr" );
+								types_tr.addElement( "td" ).addText(setting_name);
+								types_tr.addElement( "td" ).addText(setting_widgetconfig);
+								nb_lines++;
+							}
 						}
 					} catch (DocumentException e) {
 						//e.printStackTrace();
